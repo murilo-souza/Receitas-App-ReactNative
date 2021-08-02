@@ -1,16 +1,18 @@
-import React from 'react';
+import React, {ReactNode} from 'react';
+import {View} from 'react-native';
 
-import {
-  View
-} from 'react-native';
+import {LinearGradient} from 'expo-linear-gradient'
 
 import { styles } from './styles';
 
+type Props = {
+  children: ReactNode
+}
 
-export function Background(){
+export function Background({children}: Props){
   return (
-    <View>
-
-    </View>
+    <LinearGradient colors={['#fff' , '#0f5']}>
+        {children}
+    </LinearGradient>
   );
 }
