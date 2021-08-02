@@ -11,7 +11,7 @@ type Props = {
 
 export function Background({children}: Props){
   return (
-    <LinearGradient colors={['#fff' , '#0f5']}>
+    <LinearGradient colors={['#fff' , '#0f5']} style={styles.container}>
         {children}
     </LinearGradient>
   );
