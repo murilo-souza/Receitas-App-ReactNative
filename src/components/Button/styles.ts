@@ -1,13 +1,18 @@
 import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#585655',
+  btnEnter: {
+    backgroundColor: '#4B3D4A',
+    width: '90%',
+    height: 50,
     alignItems: 'center',
     justifyContent: 'center',
+    borderRadius: 10,
   },
-  text: {
+
+  btnText: {
+    textAlign: 'center',
     color: '#fff',
+    fontSize: 17,
   }
 });
