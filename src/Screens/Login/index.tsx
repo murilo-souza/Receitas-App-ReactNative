@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   Image
 } from 'react-native';
+import {useNavigation} from '@react-navigation/native'
 
 import { styles } from './styles';
 
@@ -16,9 +17,10 @@ import Hotdog from '../../assets/hotdog-s-bg.png'
 import { Signin } from '../Signin';
 
 export function Login(){
+  const navigation = useNavigation();
 
   function GoToSignIn(){
-
+    navigation.navigate('Signin');
   }
 
   return (
@@ -30,7 +32,7 @@ export function Login(){
         text="Entrar"
         onPress={() =>{}}
       />
-      <TouchableOpacity onPress={()=>{}}><Text style={styles.createAccount}>Criar conta</Text></TouchableOpacity>
+      <TouchableOpacity onPress={GoToSignIn}><Text style={styles.createAccount}>Criar conta</Text></TouchableOpacity>
     </View>
   
   );
