@@ -1,15 +1,16 @@
 import React from 'react';
 
 import {
-  View
+  View,
+  Text
 } from 'react-native';
 
 import { styles } from './styles';
 
 export function Signin(){
   return (
-    <View>
-
+    <View style={styles.container}>
+      <Text>SignIn Screen</Text>
     </View>
   );
 }

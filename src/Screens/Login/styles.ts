@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { theme } from '../../global/styles/theme';
 
 export const styles = StyleSheet.create({
   container: {
@@ -14,8 +15,20 @@ export const styles = StyleSheet.create({
     height: 50,
     marginBottom: 25,
     color: '#222',
-    fontSize: 17,
+    fontSize: 15,
     borderRadius: 10,
     padding: 10,
   },
+
+  createAccount: {
+    marginTop: 20,
+    color: theme.colors.text,
+    fontSize: 17,
+  },
+
+  image: {
+    width: 350,
+    height: 300,
+    marginBottom: 30,
+  }
 });

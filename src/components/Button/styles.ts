@@ -1,8 +1,9 @@
 import { StyleSheet } from 'react-native';
+import { theme } from '../../global/styles/theme';
 
 export const styles = StyleSheet.create({
   btnEnter: {
-    backgroundColor: '#4B3D4A',
+    backgroundColor: theme.colors.primary,
     width: '90%',
     height: 50,
     alignItems: 'center',
@@ -12,7 +13,7 @@ export const styles = StyleSheet.create({
 
   btnText: {
     textAlign: 'center',
-    color: '#fff',
+    color: theme.colors.title,
     fontSize: 17,
   }
 });
