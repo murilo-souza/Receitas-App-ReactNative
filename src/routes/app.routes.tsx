@@ -3,8 +3,10 @@ import {View} from 'react-native';
 
 import {createStackNavigator} from '@react-navigation/stack';
 
+import {Inicial} from '../Screens/Inicial'
 import { Login } from '../Screens/Login';
-import {Signin} from '../Screens/Signin'
+import {Signin} from '../Screens/Signin';
+import { Home } from '../Screens/Home';
 
 import { theme } from '../global/styles/theme';
 
@@ -22,6 +24,11 @@ export function AppRoutes(){
     }}
     >
       <Screen
+          name='Inicial'
+          component={Inicial}
+      />
+
+      <Screen
           name='Login'
           component={Login}
       />
@@ -29,6 +36,11 @@ export function AppRoutes(){
       <Screen
           name='Signin'
           component={Signin}
+      />
+
+      <Screen
+          name='Home'
+          component={Home}
       />
 
     </Navigator>

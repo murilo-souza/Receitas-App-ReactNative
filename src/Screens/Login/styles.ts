@@ -6,6 +6,7 @@ export const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    paddingTop: 125
   },
 
   textInput: {
@@ -27,7 +28,7 @@ export const styles = StyleSheet.create({
 
   image: {
     width: 350,
-    height: 300,
-    marginBottom: 30,
+    height: 350,
+    marginBottom: 20,
   }
 });
