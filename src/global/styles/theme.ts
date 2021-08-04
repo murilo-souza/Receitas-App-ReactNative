@@ -14,6 +14,13 @@ export const theme = {
         text: '#ECE5F0',
         title: '#fff',
 
+    },
+
+    fonts: {
+        text400R: 'Roboto_400Regular',
+        text300L: 'Roboto_300Light',
+        title500M: 'Roboto_500Medium',
+        title700B: 'Roboto_700Bold'
     }
 
 }
