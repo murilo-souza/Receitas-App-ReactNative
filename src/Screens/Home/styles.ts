@@ -14,14 +14,14 @@ export const styles = StyleSheet.create({
     marginBottom: 30,
   },
 
-  list:{
-    justifyContent: 'space-between'
+  listHeader:{
+    justifyContent: 'space-between',
+    marginBottom: 25,
   },
 
-  titleList:{
-    color: theme.colors.title,
-    fontFamily: theme.fonts.title500M,
-    fontSize: 20,
-  },
+  listContent: {
+    marginBottom: 30,
+    paddingRight: 30,
+  }
 
 });
