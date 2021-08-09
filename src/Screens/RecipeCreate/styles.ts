@@ -9,8 +9,9 @@ export const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     color: theme.colors.title,
-    textAlign: 'center',
     marginBottom: 20,
+    justifyContent: 'flex-start',
+    fontFamily: theme.fonts.title700B
   },
   
   section: {

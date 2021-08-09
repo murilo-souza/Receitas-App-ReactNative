@@ -24,8 +24,9 @@ export function Header({titleHeader}: Props){
   return (
     <LinearGradient
       colors={[secondary100, secondary60]}
+      style={styles.header}
     >
-      <View style={styles.container}>
+      <View>
         <BorderlessButton onPress={HandlerGoBack}>
                 <Feather
                     name="arrow-left"
@@ -33,8 +34,8 @@ export function Header({titleHeader}: Props){
                     color={title}
                 />
         </BorderlessButton>
-        <Text style={styles.title}>{titleHeader}</Text>
       </View>
+      <Text style={styles.title}>{titleHeader}</Text>
     </LinearGradient>
   );
 }
