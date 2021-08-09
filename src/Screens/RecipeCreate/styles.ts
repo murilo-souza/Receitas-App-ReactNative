@@ -11,5 +11,13 @@ export const styles = StyleSheet.create({
     color: theme.colors.title,
     textAlign: 'center',
     marginBottom: 20,
+  },
+  
+  section: {
+    marginBottom: 40,
+  },
+
+  btn:{
+    alignItems: 'center',
   }
 });

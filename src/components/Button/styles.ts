@@ -4,7 +4,7 @@ import { theme } from '../../global/styles/theme';
 export const styles = StyleSheet.create({
   btnEnter: {
     backgroundColor: theme.colors.primary,
-    width: '90%',
+    width: '100%',
     height: 50,
     alignItems: 'center',
     justifyContent: 'center',

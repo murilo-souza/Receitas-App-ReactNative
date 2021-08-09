@@ -34,6 +34,7 @@ export function Inicial(){
                 <Button
                 text="Entrar"
                 onPress={GoToLogIn}
+                
                 />
             </View>
         </Background>

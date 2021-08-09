@@ -6,12 +6,14 @@ export const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    paddingTop: 125
+    paddingTop: 125,
+    paddingLeft: 20,
+    paddingRight: 20,
   },
 
   textInput: {
     backgroundColor: '#fff',
-    width: '90%',
+    width: '100%',
     height: 50,
     marginBottom: 25,
     color: '#222',
