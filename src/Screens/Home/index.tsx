@@ -1,7 +1,7 @@
 import React from 'react';
 import {
   View,
-  FlatList
+  ScrollView
 } from 'react-native';
 
 import { useNavigation } from '@react-navigation/native';
@@ -47,6 +47,8 @@ export function Home(){
             title='Pão de Cebola'
             text='Receita de familia do pão de cebola da minha vó'
           />
+          
+          
         </View>
       </View>
     </Background>

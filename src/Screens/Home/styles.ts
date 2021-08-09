@@ -20,7 +20,7 @@ export const styles = StyleSheet.create({
   },
 
   listContent: {
-    marginBottom: 30,
+    marginBottom:10,
   }
 
 });
