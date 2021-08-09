@@ -8,6 +8,7 @@ import { Login } from '../Screens/Login';
 import {Signin} from '../Screens/Signin';
 import { Home } from '../Screens/Home';
 import { RecipeCreate } from '../Screens/RecipeCreate';
+import { RecipeDetails } from '../Screens/RecipeDetails';
 
 import { theme } from '../global/styles/theme';
 
@@ -47,6 +48,11 @@ export function AppRoutes(){
       <Screen
         name='RecipeCreate'
         component={RecipeCreate}
+      />
+
+      <Screen
+        name='RecipeDetails'
+        component={RecipeDetails}
       />
     </Navigator>
   );

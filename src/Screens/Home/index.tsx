@@ -1,6 +1,7 @@
 import React from 'react';
 import {
   View,
+  FlatList
 } from 'react-native';
 
 import { useNavigation } from '@react-navigation/native';
@@ -11,7 +12,7 @@ import {ButtonAdd} from '../../components/ButtonAdd'
 import { HeaderList } from '../../components/HeaderList';
 import { ListContent } from '../../components/ListContent';
 
-import { styles } from './styles';
+import { styles } from './styles';  
 
 export function Home(){
   const navigation = useNavigation()
@@ -21,7 +22,7 @@ export function Home(){
   }
 
   function GoToDetails(){
-    
+    navigation.navigate('RecipeDetails')
   }
 
   return (
@@ -40,6 +41,7 @@ export function Home(){
           <ListContent
             title='Feijoada'
             text='Uma breve receita de como fazer uma feijoada magra'
+            onPress={GoToDetails}
           />
           <ListContent
             title='Pão de Cebola'
