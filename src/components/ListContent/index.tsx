@@ -5,28 +5,31 @@ import {
   Text
 } from 'react-native';
 
+import {RectButton, RectButtonProps} from 'react-native-gesture-handler'
+import { Divider } from '../Divider';
+
 import { ListIcon } from '../ListIcon';
 
-import { LinearGradient } from 'expo-linear-gradient';
-
 import { styles } from './styles';
-import { theme } from '../../global/styles/theme';
 
-type Props ={
+type Props = RectButtonProps & {
   title:string,
   text:string,
 }
 
-export function ListContent({title, text}: Props){
-  const {secondary60, secondary30} = theme.colors
+export function ListContent({title, text, ...rest}: Props){
+  
 
   return (
-    <View style={styles.container}>
-          <ListIcon/>
-          <View style={styles.contentText}>
-            <Text style={styles.title}>{title}</Text>
-            <Text style={styles.text}>{text}</Text>
-          </View>
-    </View>
+    <>
+      <RectButton style={styles.container} {...rest}>
+        <ListIcon/>
+        <View style={styles.contentText}>
+          <Text style={styles.title}>{title}</Text>
+          <Text style={styles.text}>{text}</Text>
+        </View>
+      </RectButton>
+      <Divider/>
+    </>
   );
 }

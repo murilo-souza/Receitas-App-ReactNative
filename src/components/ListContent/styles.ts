@@ -9,6 +9,7 @@ export const styles = StyleSheet.create({
   contentText: {
     flexDirection: 'column',
     marginLeft: 20,
+    paddingRight: 30,
   },
 
   title: {
@@ -21,6 +22,6 @@ export const styles = StyleSheet.create({
   text: {
     fontSize: 15,
     fontFamily: theme.fonts.text400R,
-    color: theme.colors.text
+    color: theme.colors.text,
   },
 });

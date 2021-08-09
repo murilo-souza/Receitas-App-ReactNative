@@ -7,6 +7,7 @@ import {Inicial} from '../Screens/Inicial'
 import { Login } from '../Screens/Login';
 import {Signin} from '../Screens/Signin';
 import { Home } from '../Screens/Home';
+import { RecipeCreate } from '../Screens/RecipeCreate';
 
 import { theme } from '../global/styles/theme';
 
@@ -43,6 +44,10 @@ export function AppRoutes(){
           component={Home}
       />
 
+      <Screen
+        name='RecipeCreate'
+        component={RecipeCreate}
+      />
     </Navigator>
   );
 }

@@ -21,7 +21,6 @@ export const styles = StyleSheet.create({
 
   listContent: {
     marginBottom: 30,
-    paddingRight: 30,
   }
 
 });
