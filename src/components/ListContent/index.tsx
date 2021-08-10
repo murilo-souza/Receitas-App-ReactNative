@@ -17,6 +17,7 @@ type Props = RectButtonProps & {
   text:string,
 }
 
+
 export function ListContent({title, text, ...rest}: Props){
   
 
