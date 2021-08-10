@@ -47,8 +47,10 @@ export function Home(){
             title='Pão de Cebola'
             text='Receita de familia do pão de cebola da minha vó'
           />
-          
-          
+          <ListContent
+            title='Pão de Cebola'
+            text='Receita de familia do pão de cebola da minha vó'
+          />
         </View>
       </View>
     </Background>
