@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   View,
   Text,
@@ -12,6 +12,8 @@ import {useNavigation} from '@react-navigation/native';
 
 import { styles } from './styles';
 
+import firebase from '../../Data/firebaseConfig'
+
 import {Button} from '../../components/Button';
 import {Background} from '../../components/Background'
 
@@ -19,13 +21,24 @@ import Chefe from '../../assets/cook.png'
 
 export function Login(){
   const navigation = useNavigation();
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [logedIn, setLogedIn] = useState(false)
 
   function GoToSignIn(){
     navigation.navigate('Signin');
   };
 
-  function GoToHome(){
-    navigation.navigate('Home');
+  function LogIn(){
+    firebase.auth().signInWithEmailAndPassword(email, password).then((userCredential) => {
+    var user = userCredential.user;
+  })
+  .catch((error) => {
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    alert(errorMessage)
+  });
+  setLogedIn(true);
   }
 
   return (
@@ -34,11 +47,11 @@ export function Login(){
         <ScrollView>
           <View style={styles.container}>
             <Image source={Chefe} style={styles.image} resizeMode="stretch"/>
-            <TextInput placeholder= "Insira seu E-mail" style={styles.textInput}/>
-            <TextInput placeholder= "Insira sua senha" style={styles.textInput}/>
+            <TextInput placeholder= "Insira seu E-mail" style={styles.textInput} onChangeText={email => setEmail(email)} value={email}/>
+            <TextInput placeholder= "Insira sua senha" style={styles.textInput} onChangeText={password => setPassword(password)} value={password}/>
             <Button
               text="Entrar"
-              onPress={GoToHome}
+              onPress={LogIn}
             />
             <TouchableOpacity onPress={GoToSignIn}><Text style={styles.createAccount}>Criar conta</Text></TouchableOpacity>
           </View>

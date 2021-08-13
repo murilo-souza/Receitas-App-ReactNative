@@ -1,8 +1,10 @@
-import React from 'react';
+import React , {useState} from 'react';
 import {
   View,
   ScrollView
 } from 'react-native';
+
+import firebase from '../../Data/firebaseConfig';
 
 import { useNavigation } from '@react-navigation/native';
 
@@ -15,7 +17,19 @@ import { ListContent } from '../../components/ListContent';
 import { styles } from './styles';  
 
 export function Home(){
+  const [logedIn, setLogedIn] = useState(false)
   const navigation = useNavigation()
+
+   function SignOut(){
+    firebase.auth().signOut().then(()=>{
+      alert('Deslogado com sucesso');
+      setLogedIn(false)
+
+    }).catch(function (error){
+      alert('Deslogado com sucesso')
+    });
+    
+  }
 
   function GoToCreation(){
     navigation.navigate('RecipeCreate')
@@ -29,7 +43,9 @@ export function Home(){
     <Background>
       <View style={styles.container}>
         <View style={styles.header}>
-          <ProfileIcon/>
+          <ProfileIcon
+            onPress={SignOut}
+          />
           <ButtonAdd
             onPress={GoToCreation}
           />
