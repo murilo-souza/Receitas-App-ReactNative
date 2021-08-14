@@ -21,13 +21,18 @@ import ChefeSigin from '../../assets/cook5.png'
 
 
 export function Signin(){
+  const [username, setUsername] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [logedIn, setLogedIn] = useState(false)
   
-  function SignIn(){
-    firebase.auth().createUserWithEmailAndPassword( email, password).then((userCredential) => {
-      var user = userCredential.user;
+   function SignIn(){
+    firebase.auth().createUserWithEmailAndPassword( email, password).then(data => {
+      const uid = data.user?.uid
+      const users = firebase.firestore().collection('users');
+      users.doc(uid).set({
+        Email: email, Name: username, 
+      })
     })
     .catch((error) => {
       var errorCode = error.code;
@@ -46,7 +51,7 @@ export function Signin(){
           <Header/>
           <View style={styles.container}>
             <Image source={ChefeSigin} style={styles.image} resizeMode="stretch"/>
-            <TextInput placeholder="Insira seu nome" style={styles.textInput} autoCompleteType={'username'}/>
+            <TextInput placeholder="Insira seu nome" style={styles.textInput} autoCompleteType={'username'} onChangeText={username => setUsername(username)} value={username}/>
             <TextInput placeholder="Insira seu E-mail" style={styles.textInput} autoCompleteType={'email'} keyboardType={'email-address'} onChangeText={email => setEmail(email)} value={email}/>
             <TextInput placeholder="Insira sua senha" style={styles.textInput} autoCompleteType={'password'} keyboardType={'visible-password'} onChangeText={password => setPassword(password)} value={password}/>
             <Button

@@ -44,6 +44,7 @@ export function Home(){
       <View style={styles.container}>
         <View style={styles.header}>
           <ProfileIcon
+            username='Murilo'
             onPress={SignOut}
           />
           <ButtonAdd

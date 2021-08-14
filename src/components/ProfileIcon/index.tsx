@@ -9,13 +9,17 @@ import {RectButton, RectButtonProps} from 'react-native-gesture-handler'
 
 import { styles } from './styles';
 
-export function ProfileIcon({...rest}: RectButtonProps){
+type Props = RectButtonProps & {
+  username:string,
+}
+
+export function ProfileIcon({username, ...rest}: Props){
   return (
     <RectButton style={styles.container} {...rest}> 
       <View style={styles.boxProfile}>
 
       </View>
-      <Text style={styles.title}>Ola, Murilo</Text>
+      <Text style={styles.title}>Ola, {username}</Text>
     </RectButton>
   );
 }

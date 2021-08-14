@@ -29,9 +29,14 @@ export function Login(){
     navigation.navigate('Signin');
   };
 
-  function LogIn(){
-    firebase.auth().signInWithEmailAndPassword(email, password).then((userCredential) => {
-    var user = userCredential.user;
+    function LogIn(){
+    firebase.auth().signInWithEmailAndPassword(email, password).then(async (data) => {
+    const uid = data.user?.uid;
+    try {
+      const doc = await firebase.firestore().doc(`users/${uid}`).get()
+    } catch (error) {
+      
+    }
   })
   .catch((error) => {
     var errorCode = error.code;
@@ -60,3 +65,4 @@ export function Login(){
     </Background>
   );
 }
+
