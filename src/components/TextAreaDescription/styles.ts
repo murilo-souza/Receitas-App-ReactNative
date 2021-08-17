@@ -4,7 +4,7 @@ import { theme } from '../../global/styles/theme';
 export const styles = StyleSheet.create({
   container: {
     width:'100%',
-    height: 150,
+    height: 125,
     backgroundColor: theme.colors.secondary80,
     borderRadius: 10,
     color: theme.colors.text,
@@ -16,6 +16,5 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingTop: 16,
     textAlignVertical: 'top',
-    
   }
 });
