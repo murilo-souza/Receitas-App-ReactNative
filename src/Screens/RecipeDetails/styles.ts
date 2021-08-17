@@ -18,7 +18,8 @@ export const styles = StyleSheet.create({
     fontSize: 17,
     color: theme.colors.text,
     fontFamily: theme.fonts.text300L,
-    justifyContent: 'flex-start'
+    justifyContent: 'flex-start',
+    marginBottom: 10
   },
 
   section:{
