@@ -13,13 +13,26 @@ import { ProfileIcon } from '../../components/ProfileIcon';
 import {ButtonAdd} from '../../components/ButtonAdd'
 import { HeaderList } from '../../components/HeaderList';
 import { ListContent } from '../../components/ListContent';
+import {Load} from '../../components/Load'
 
 import { styles } from './styles';  
 
 export function Home(){
   const [logedIn, setLogedIn] = useState(false)
+  const [Loading, SetLoading] = useState(true)
+
+  const [Name, setName] = useState('')
+
   const navigation = useNavigation()
 
+  const id = firebase.auth().currentUser?.uid
+  const username = firebase.firestore().collection('users').doc(id).get().then((item)=>{
+    const Name = item.get('Name');
+    console.log(Name)
+    setName(Name)
+    SetLoading(false)
+  })
+  
    function SignOut(){
     firebase.auth().signOut().then(()=>{
       alert('Deslogado com sucesso');
@@ -40,10 +53,12 @@ export function Home(){
   }
 
   return (
+    Loading ? <Load/> :
     <Background>
       <View style={styles.container}>
         <View style={styles.header}>
           <ProfileIcon
+            username = {Name}
             onPress={SignOut}
           />
           <ButtonAdd

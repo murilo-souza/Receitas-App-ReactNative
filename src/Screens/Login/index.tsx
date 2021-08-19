@@ -16,10 +16,12 @@ import firebase from '../../Data/firebaseConfig'
 
 import {Button} from '../../components/Button';
 import {Background} from '../../components/Background'
+import { Load } from '../../components/Load';
 
 import Chefe from '../../assets/cook.png'
 
 export function Login(){
+  const [Loading, setLoading] = useState(true)
   const navigation = useNavigation();
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
