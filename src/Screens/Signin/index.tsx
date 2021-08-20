@@ -31,7 +31,7 @@ export function Signin(){
       const uid = data.user?.uid
       const users = firebase.firestore().collection('users');
       users.doc(uid).set({
-        Email: email, Name: username, 
+        Email: email, Name: username,
       })
     })
     .catch((error) => {

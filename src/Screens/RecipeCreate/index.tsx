@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState}from 'react';
 
 import {
   View,
@@ -6,8 +6,10 @@ import {
   KeyboardAvoidingView,
   ScrollView,
 } from 'react-native';
-import { Button } from '../../components/Button';
 
+import firebase from '../../Data/firebaseConfig';
+
+import { Button } from '../../components/Button';
 import { Header } from '../../components/Header';
 import { TextArea } from '../../components/TextArea';
 import { TextAreaBig } from '../../components/TextAreaBig';
@@ -17,6 +19,22 @@ import { TextAreaTitle } from '../../components/TextAreaTitle';
 import { styles } from './styles';
 
 export function RecipeCreate(){
+  const [title, setTitle] = useState('')
+  const [description, setDescription] = useState('')
+  const [ingredients, setIngredients] = useState('')
+  const [prepare, setPrepare] = useState('')
+
+  function createRecipe(){
+      const uid = firebase.auth().currentUser?.uid
+      firebase.firestore().collection('users').doc(uid).collection('Receitas').doc().set({
+        Title: title,
+        Description: description,
+        Ingredients: ingredients,
+        Prepare:prepare,
+
+      })
+  }
+
   return (
     <KeyboardAvoidingView>
       <ScrollView>
@@ -27,15 +45,19 @@ export function RecipeCreate(){
           <View style={styles.section}>
             <Text style={styles.title}>Título</Text>
             <TextAreaTitle
-            maxLength={20}
+              maxLength={20}
+              onChangeText={title => setTitle(title)}
+              value={title}
             />
           </View>
           <View style={styles.section}>
             <Text style={styles.title}>Descrição</Text>
             <TextAreaDescription
-            maxLength = {100}
-            multiline
-            numberOfLines={3}
+              maxLength = {100}
+              multiline
+              numberOfLines={3}
+              onChangeText={description => setDescription(description)}
+              value={description}
             />
           </View>
           <View style={styles.section}>
@@ -43,6 +65,8 @@ export function RecipeCreate(){
             <TextArea
               multiline
               numberOfLines={5}
+              onChangeText={ingredients => setIngredients(ingredients)}
+              value={ingredients}
             />
           </View>
           <View style={[styles.section]}>
@@ -50,6 +74,8 @@ export function RecipeCreate(){
             <TextAreaBig
               multiline
               numberOfLines={5}
+              onChangeText={prepare => setPrepare(prepare)}
+              value={prepare}
             />
           </View>
           <View style={styles.btn}>
