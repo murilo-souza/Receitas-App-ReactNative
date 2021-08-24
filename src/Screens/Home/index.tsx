@@ -20,8 +20,10 @@ import { styles } from './styles';
 export function Home(){
   const [logedIn, setLogedIn] = useState(false)
   const [Loading, SetLoading] = useState(true)
+  const [Recipe, setRecipe] = useState([])
 
   const [Name, setName] = useState('')
+
 
   const navigation = useNavigation()
 
@@ -31,6 +33,13 @@ export function Home(){
     console.log(Name)
     setName(Name)
     SetLoading(false)
+  })
+
+  const recipeData = firebase.firestore().collection('users').doc(id).collection('Receitas').doc().get().then((item) => {
+    const Data = item.get('Title')
+    
+
+    console.log(Data)
   })
   
    function SignOut(){

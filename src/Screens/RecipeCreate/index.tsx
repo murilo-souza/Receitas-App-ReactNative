@@ -7,6 +7,8 @@ import {
   ScrollView,
 } from 'react-native';
 
+import {useNavigation} from '@react-navigation/native'
+
 import firebase from '../../Data/firebaseConfig';
 
 import { Button } from '../../components/Button';
@@ -19,6 +21,7 @@ import { TextAreaTitle } from '../../components/TextAreaTitle';
 import { styles } from './styles';
 
 export function RecipeCreate(){
+  const navigation = useNavigation()
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
   const [ingredients, setIngredients] = useState('')
@@ -31,8 +34,9 @@ export function RecipeCreate(){
         Description: description,
         Ingredients: ingredients,
         Prepare:prepare,
-
       })
+    navigation.goBack()
+      
   }
 
   return (
@@ -81,6 +85,7 @@ export function RecipeCreate(){
           <View style={styles.btn}>
             <Button
               text="Salvar"
+              onPress={createRecipe}
             />
           </View>
         </View>
