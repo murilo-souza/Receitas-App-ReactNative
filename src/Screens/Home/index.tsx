@@ -37,7 +37,6 @@ export function Home(){
 
   const recipeData = firebase.firestore().collection('users').doc(id).collection('Receitas').doc().get().then((item) => {
     const Data = item.get('Title')
-    
 
     console.log(Data)
   })
