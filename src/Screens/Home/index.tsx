@@ -1,7 +1,8 @@
 import React , {useState, useEffect} from 'react';
 import {
   View,
-  FlatList
+  FlatList,
+  RefreshControl
 } from 'react-native';
 
 import firebase from '../../Data/firebaseConfig';
@@ -20,7 +21,8 @@ import { styles } from './styles';
 export function Home(){
   const [logedIn, setLogedIn] = useState(true)
   const [Loading, SetLoading] = useState(true)
-  const [Recipe, setRecipe] = useState([])
+  const [data, setData] = useState<any>([])
+  const [isRefreshing, setIsRefreshing] = useState(false)
 
   const [Name, setName] = useState('')
 
@@ -34,22 +36,23 @@ export function Home(){
   })
 
   useEffect(()=>{
-    firebase.firestore().collection('users').doc(id).collection('Receitas').get().then((item) => {
-      let d:any = []
-      item.forEach((doc)=>{
+    firebase.firestore().collection('users').doc(id).collection('Receitas').get().then((querySnapshot) => {
+      const d:any = []
+      querySnapshot.forEach((doc)=>{
         const recipes = {
           id: doc.id,
-          name: doc.data().Title,
-          description: doc.data().Description,
+          name: doc.get('Title'),
+          description: doc.get('Description'),
         }
         d.push(recipes)
+        console.log(d)
+        setData(d)
       })
-      setRecipe(d)
     }).catch((e)=>{
       console.log('Home, recipeData' + e)
     })
   },[])
-  
+
    function SignOut(){
     firebase.auth().signOut().then(()=>{
       alert('Deslogado com sucesso');
@@ -69,7 +72,7 @@ export function Home(){
     navigation.navigate('RecipeDetails')
   }
 
-
+  
   
   return (
     Loading ? <Load/> :
@@ -89,14 +92,16 @@ export function Home(){
         </View>
         <View style={styles.listContent}>
           <FlatList
-            data = {Recipe}
-            renderItem={()=>(
+            keyExtractor={item => item.id}
+            data = {data}
+            renderItem={({item})=>
               <ListContent
-                title = 'dhhddhhdhd'
-                text = 'sshhsshshs'
+                title = {item.name}
+                text = {item.description}
+                onPress = {GoToDetails}
               />
-            )}
-            
+            }
+            refreshControl={<RefreshControl refreshing={isRefreshing} />}
           />
         </View>
       </View>
