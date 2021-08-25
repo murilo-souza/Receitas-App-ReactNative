@@ -22,7 +22,6 @@ export function AppRoutes(){
   firebase.auth().onAuthStateChanged(function(user){
     if(user){
       setLogedIn(true)
-      console.log(user.uid)
     }
   })
 
