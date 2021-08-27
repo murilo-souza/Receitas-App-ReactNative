@@ -44,8 +44,8 @@ export function Home(){
           name: doc.get('Title'),
           description: doc.get('Description'),
         }
+        
         d.push(recipes)
-        console.log(d)
         setData(d)
       })
     }).catch((e)=>{
