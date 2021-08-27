@@ -43,9 +43,12 @@ export function Home(){
           id: doc.id,
           name: doc.get('Title'),
           description: doc.get('Description'),
+          ingredients: doc.get('Ingredients'),
+          prepare: doc.get('Prepare'),
         }
         
         d.push(recipes)
+        console.log(d)
         setData(d)
       })
     }).catch((e)=>{
@@ -68,8 +71,8 @@ export function Home(){
     navigation.navigate('RecipeCreate')
   }
 
-  function GoToDetails(){
-    navigation.navigate('RecipeDetails')
+  function GoToDetails(item: any){
+    navigation.navigate('RecipeDetails', {item})
   }
 
   
@@ -98,7 +101,7 @@ export function Home(){
               <ListContent
                 title = {item.name}
                 text = {item.description}
-                onPress = {GoToDetails}
+                onPress = {() => GoToDetails(item)}
               />
             }
             refreshControl={<RefreshControl refreshing={isRefreshing} />}
