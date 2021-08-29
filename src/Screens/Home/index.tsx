@@ -18,6 +18,8 @@ import {Load} from '../../components/Load'
 
 import { styles } from './styles';  
 
+
+
 export function Home(){
   const [logedIn, setLogedIn] = useState(true)
   const [Loading, SetLoading] = useState(true)
