@@ -4,17 +4,16 @@ import {
   Text
 } from 'react-native';
 
-import {RectButton, RectButtonProps} from 'react-native-gesture-handler'
+import { RectButton, RectButtonProps} from 'react-native-gesture-handler';
 
 import { styles } from './styles';
 
 type Props = RectButtonProps & {
     text: string;
 }
-
-export function Button({text, ...rest}: Props){
+export function ButtonTrash({text, ...rest}: Props){
   return (
-    <RectButton style={styles.btnEnter} {...rest}>
+    <RectButton {...rest} style={styles.btnEnter}>
         <Text style={styles.btnText}>{text}</Text>
     </RectButton>
   );

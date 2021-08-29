@@ -22,6 +22,7 @@ import { styles } from './styles';
 
 export function RecipeCreate(){
   const navigation = useNavigation()
+  const [loading, setLoading] = useState(false)
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
   const [ingredients, setIngredients] = useState('')
@@ -35,8 +36,8 @@ export function RecipeCreate(){
         Ingredients: ingredients,
         Prepare:prepare,
       })
-    navigation.goBack()
-      
+    setLoading(true)
+    navigation.navigate('Home', {loading})
   }
 
   return (

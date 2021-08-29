@@ -34,7 +34,6 @@ export function Home(){
   const username = firebase.firestore().collection('users').doc(id).get().then((item)=>{
     const Name = item.get('Name');
     setName(Name)
-    SetLoading(false)
   })
 
   useEffect(()=>{
@@ -50,8 +49,8 @@ export function Home(){
         }
         
         d.push(recipes)
-        console.log(d)
         setData(d)
+        SetLoading(false)
       })
     }).catch((e)=>{
       console.log('Home, recipeData' + e)

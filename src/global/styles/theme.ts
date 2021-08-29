@@ -14,6 +14,8 @@ export const theme = {
         text: '#ECE5F0',
         title: '#fff',
 
+        delete: '#E40404',
+        edit: '#A424F4'
     },
 
     fonts: {
