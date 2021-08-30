@@ -30,6 +30,10 @@ export function RecipeDetails(){
     navigation.navigate('Home')
   }
 
+  function EditRecipe(){
+    navigation.navigate('RecipeEdit')
+  }
+
   return (
     <ScrollView>
       <View>
@@ -48,6 +52,7 @@ export function RecipeDetails(){
             <View style={styles.section}>
               <ButtonEdit
                 text="Editar"
+                onPress={EditRecipe}
               />
             </View>
             <View style={styles.section}>
