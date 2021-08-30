@@ -1,4 +1,4 @@
-import React , {useState, useEffect} from 'react';
+import React , {useState, useEffect, useCallback} from 'react';
 import {
   View,
   FlatList,
@@ -7,7 +7,7 @@ import {
 
 import firebase from '../../Data/firebaseConfig';
 
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useFocusEffect } from '@react-navigation/native';
 
 import { Background } from '../../components/Background';
 import { ProfileIcon } from '../../components/ProfileIcon';
@@ -36,7 +36,8 @@ export function Home(){
     setName(Name)
   })
 
-  useEffect(()=>{
+  
+  async function LoadRecipes(){
     firebase.firestore().collection('users').doc(id).collection('Receitas').get().then((querySnapshot) => {
       const d:any = []
       querySnapshot.forEach((doc)=>{
@@ -55,13 +56,14 @@ export function Home(){
     }).catch((e)=>{
       console.log('Home, recipeData' + e)
     })
-  },[])
+  }
 
-   function SignOut(){
+  
+  function SignOut(){
     firebase.auth().signOut().then(()=>{
       alert('Deslogado com sucesso');
       setLogedIn(false)
-
+      
     }).catch(function (error){
       alert('Deslogado com sucesso')
     });
@@ -71,12 +73,14 @@ export function Home(){
   function GoToCreation(){
     navigation.navigate('RecipeCreate')
   }
-
+  
   function GoToDetails(item: any){
     navigation.navigate('RecipeDetails', {item})
   }
-
   
+  useFocusEffect(useCallback(()=>{
+    LoadRecipes()
+  },[]))
   
   return (
     Loading ? <Load/> :

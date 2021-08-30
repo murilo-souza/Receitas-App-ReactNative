@@ -10,17 +10,25 @@ import { Header } from '../../components/Header';
 import {Button} from '../../components/Button'
 
 import { styles } from './styles';
-import {useRoute} from '@react-navigation/native'
+import {useRoute, useNavigation} from '@react-navigation/native'
 import { ButtonTrash } from '../../components/ButtonTrash';
 import { ButtonEdit } from '../../components/ButtonEdit';
+import firebase from '../../Data/firebaseConfig'
 
 type params ={
   item: any
 }
 
 export function RecipeDetails(){
+  const navigation = useNavigation() 
   const route = useRoute()
   const {item} = route.params as params
+
+  function DeleteRecipe(){
+    const uid = firebase.auth().currentUser?.uid
+    firebase.firestore().collection('users').doc(uid).collection('Receitas').doc(item.id).delete()
+    navigation.navigate('Home')
+  }
 
   return (
     <ScrollView>
@@ -45,6 +53,7 @@ export function RecipeDetails(){
             <View style={styles.section}>
               <ButtonTrash
                 text = "Excluir"
+                onPress = {DeleteRecipe}
               />
             </View>
           </View>
