@@ -2,7 +2,7 @@ import React , {useState, useEffect, useCallback} from 'react';
 import {
   View,
   FlatList,
-  RefreshControl
+  RefreshControl, Text
 } from 'react-native';
 
 import firebase from '../../Data/firebaseConfig';
@@ -34,11 +34,12 @@ export function Home(){
   const username = firebase.firestore().collection('users').doc(id).get().then((item)=>{
     const Name = item.get('Name');
     setName(Name)
+    SetLoading(false)
   })
 
   
   async function LoadRecipes(){
-    firebase.firestore().collection('users').doc(id).collection('Receitas').get().then((querySnapshot) => {
+    await firebase.firestore().collection('users').doc(id).collection('Receitas').get().then((querySnapshot) => {
       const d:any = []
       querySnapshot.forEach((doc)=>{
         const recipes = {
@@ -51,7 +52,6 @@ export function Home(){
         
         d.push(recipes)
         setData(d)
-        SetLoading(false)
       })
     }).catch((e)=>{
       console.log('Home, recipeData' + e)
@@ -77,6 +77,7 @@ export function Home(){
   function GoToDetails(item: any){
     navigation.navigate('RecipeDetails', {item})
   }
+
   
   useFocusEffect(useCallback(()=>{
     LoadRecipes()
@@ -103,13 +104,13 @@ export function Home(){
             keyExtractor={item => item.id}
             data = {data}
             renderItem={({item})=>
-              <ListContent
-                title = {item.name}
-                text = {item.description}
-                onPress = {() => GoToDetails(item)}
-              />
-            }
-            refreshControl={<RefreshControl refreshing={isRefreshing} />}
+            <ListContent
+            title = {item.name}
+            text = {item.description}
+            onPress = {() => GoToDetails(item) }
+            />
+          }
+          refreshControl={<RefreshControl refreshing={isRefreshing} />}
           />
         </View>
       </View>

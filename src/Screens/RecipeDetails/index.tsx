@@ -29,9 +29,9 @@ export function RecipeDetails(){
     firebase.firestore().collection('users').doc(uid).collection('Receitas').doc(item.id).delete()
     navigation.navigate('Home')
   }
-
-  function EditRecipe(){
-    navigation.navigate('RecipeEdit')
+  
+  function EditRecipe(item: any) {
+    navigation.navigate('RecipeEdit', {item})
   }
 
   return (
@@ -52,7 +52,7 @@ export function RecipeDetails(){
             <View style={styles.section}>
               <ButtonEdit
                 text="Editar"
-                onPress={EditRecipe}
+                onPress={()=>EditRecipe(item)}
               />
             </View>
             <View style={styles.section}>

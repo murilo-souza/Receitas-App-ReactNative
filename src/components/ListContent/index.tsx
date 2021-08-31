@@ -6,6 +6,7 @@ import {
 } from 'react-native';
 
 import {RectButton, RectButtonProps} from 'react-native-gesture-handler'
+import { ButtonEdit } from '../ButtonEdit';
 import { Divider } from '../Divider';
 
 import { ListIcon } from '../ListIcon';

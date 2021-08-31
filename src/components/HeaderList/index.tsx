@@ -5,9 +5,12 @@ import {
   Text
 } from 'react-native';
 
+import firebase from '../../Data/firebaseConfig'
+
 import { styles } from './styles';
 
 export function HeaderList(){
+  
   return (
     <View style={styles.container}>
         <Text style={styles.title}>Suas Receitas</Text>
