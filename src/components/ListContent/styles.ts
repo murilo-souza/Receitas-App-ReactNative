@@ -3,13 +3,21 @@ import { theme } from '../../global/styles/theme';
 
 export const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row'
+    flexDirection: 'row',
+    borderWidth: 1,
+    borderColor: theme.colors.primary,
+    borderRadius: 10,
+    marginBottom: 10,
+    marginTop: 10,
+    backgroundColor: theme.colors.secondary100
   },
 
   contentText: {
     flexDirection: 'column',
     marginLeft: 20,
     paddingRight: 30,
+    marginBottom: 10,
+    marginTop: 10,
   },
 
   title: {

@@ -10,6 +10,8 @@ export const styles = StyleSheet.create({
     width: 60,
     height: 60,
     borderRadius: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 
   title: {

@@ -6,10 +6,6 @@ import {
 } from 'react-native';
 
 import {RectButton, RectButtonProps} from 'react-native-gesture-handler'
-import { ButtonEdit } from '../ButtonEdit';
-import { Divider } from '../Divider';
-
-import { ListIcon } from '../ListIcon';
 
 import { styles } from './styles';
 
@@ -24,14 +20,15 @@ export function ListContent({title, text, ...rest}: Props){
 
   return (
     <>
-      <RectButton style={styles.container} {...rest}>
-        <ListIcon/>
-        <View style={styles.contentText}>
-          <Text style={styles.title}>{title}</Text>
-          <Text style={styles.text}>{text}</Text>
+      <RectButton  {...rest}>
+        <View style={styles.container}>
+          <View style={styles.contentText}>
+            <Text style={styles.title}>{title}</Text>
+            <Text style={styles.text}>{text}</Text>
+          </View>
         </View>
       </RectButton>
-      <Divider/>
+      
     </>
   );
 }
