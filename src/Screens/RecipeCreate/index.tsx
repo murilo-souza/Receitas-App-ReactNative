@@ -28,6 +28,7 @@ export function RecipeCreate(){
   const [ingredients, setIngredients] = useState('')
   const [prepare, setPrepare] = useState('')
 
+
   function createRecipe(){
       const uid = firebase.auth().currentUser?.uid
       firebase.firestore().collection('users').doc(uid).collection('Receitas').doc().set({
