@@ -35,8 +35,7 @@ export function Signin(){
       })
     })
     .catch((error) => {
-      var errorCode = error.code;
-      var errorMessage = error.message;
+      const errorMessage = error.message;
       alert(errorMessage)
     });
     setLogedIn(true);

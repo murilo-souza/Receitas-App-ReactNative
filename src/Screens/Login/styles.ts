@@ -28,9 +28,16 @@ export const styles = StyleSheet.create({
     fontSize: 17,
   },
 
+  forgotPassword: {
+    marginTop: 20,
+    color: theme.colors.text,
+    fontSize: 14
+  },
+
   image: {
     width: 350,
     height: 350,
     marginBottom: 20,
-  }
+  },
+  
 });

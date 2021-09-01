@@ -110,7 +110,6 @@ export function Home(){
             onPress = {() => GoToDetails(item) }
             />
           }
-          refreshControl={<RefreshControl refreshing={isRefreshing} />}
           />
         </View>
       </View>

@@ -19,16 +19,13 @@ export function ListContent({title, text, ...rest}: Props){
   
 
   return (
-    <>
-      <RectButton  {...rest}>
-        <View style={styles.container}>
-          <View style={styles.contentText}>
-            <Text style={styles.title}>{title}</Text>
-            <Text style={styles.text}>{text}</Text>
-          </View>
+    <RectButton {...rest}>
+      <View style={styles.container}>
+        <View style={styles.contentText}>
+          <Text style={styles.title}>{title}</Text>
+          <Text style={styles.text}>{text}</Text>
         </View>
-      </RectButton>
-      
-    </>
+      </View>
+    </RectButton>
   );
 }

@@ -6,7 +6,8 @@ import {
   TouchableOpacity,
   Image,
   ScrollView,
-  KeyboardAvoidingView
+  KeyboardAvoidingView,
+  Modal
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 
@@ -16,16 +17,16 @@ import firebase from '../../Data/firebaseConfig'
 
 import {Button} from '../../components/Button';
 import {Background} from '../../components/Background'
-import { Load } from '../../components/Load';
+import { AlertPassword } from '../../components/AlertPassword';
 
 import Chefe from '../../assets/cook.png'
 
 export function Login(){
-  const [Loading, setLoading] = useState(true)
   const navigation = useNavigation();
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [logedIn, setLogedIn] = useState(false)
+  const [visible, setVisible] = useState(false)
 
   function GoToSignIn(){
     navigation.navigate('Signin');
@@ -48,6 +49,14 @@ export function Login(){
   setLogedIn(true);
   }
 
+  function resetPassword() {
+    if(email.length < 3) {
+      alert('Coloque o email para resetar a senha')
+    }else{
+      firebase.auth().sendPasswordResetEmail(email)
+    }
+  }
+
   return (
     <Background>
       <KeyboardAvoidingView>
@@ -60,6 +69,7 @@ export function Login(){
               text="Entrar"
               onPress={LogIn}
             />
+            <TouchableOpacity onPress = {resetPassword}><Text style={styles.forgotPassword}>Esqueci minha senha</Text></TouchableOpacity>
             <TouchableOpacity onPress={GoToSignIn}><Text style={styles.createAccount}>Criar conta</Text></TouchableOpacity>
           </View>
         </ScrollView>
