@@ -2,7 +2,7 @@ import React , {useState, useEffect, useCallback} from 'react';
 import {
   View,
   FlatList,
-  RefreshControl, Text
+  RefreshControl, Text, Alert
 } from 'react-native';
 
 import firebase from '../../Data/firebaseConfig';
@@ -39,7 +39,7 @@ export function Home(){
 
   
   async function LoadRecipes(){
-    await firebase.firestore().collection('users').doc(id).collection('Receitas').get().then((querySnapshot) => {
+    await firebase.firestore().collection('users').doc(id).collection('Receitas').orderBy('Title', 'asc').get().then((querySnapshot) => {
       const d:any = []
       querySnapshot.forEach((doc)=>{
         const recipes = {
@@ -54,7 +54,7 @@ export function Home(){
         setData(d)
       })
     }).catch((e)=>{
-      console.log('Home, recipeData' + e)
+      alert('Erro ao pegar os dados')
     })
   }
 
