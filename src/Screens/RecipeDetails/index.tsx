@@ -3,12 +3,11 @@ import React, {useState} from 'react';
 import {
   View,
   Text,
-  ScrollView
+  ScrollView,
+  Alert
 } from 'react-native';
 
 import { Header } from '../../components/Header';
-import {Button} from '../../components/Button'
-
 import { styles } from './styles';
 import {useRoute, useNavigation} from '@react-navigation/native'
 import { ButtonTrash } from '../../components/ButtonTrash';
@@ -28,6 +27,21 @@ export function RecipeDetails(){
     const uid = firebase.auth().currentUser?.uid
     firebase.firestore().collection('users').doc(uid).collection('Receitas').doc(item.id).delete()
     navigation.navigate('Home')
+  }
+
+  function AlertDelete(){
+    Alert.alert(
+      "Deletar receita",
+      "Tem certeza que deseja excluir essa receita",
+      [
+        {
+          text: "Manter",
+          onPress: () => console.log("Cancel Pressed"),
+          style: "cancel"
+        },
+        { text: "Excluir", onPress: () => DeleteRecipe() }
+      ]
+    );
   }
   
   function EditRecipe(item: any) {
@@ -58,7 +72,7 @@ export function RecipeDetails(){
             <View style={styles.section}>
               <ButtonTrash
                 text = "Excluir"
-                onPress = {DeleteRecipe}
+                onPress = {AlertDelete}
               />
             </View>
           </View>

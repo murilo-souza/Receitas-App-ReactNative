@@ -27,18 +27,27 @@ export function Signin(){
   const [logedIn, setLogedIn] = useState(false)
   
    function SignIn(){
-    firebase.auth().createUserWithEmailAndPassword( email, password).then(data => {
-      const uid = data.user?.uid
-      const users = firebase.firestore().collection('users');
-      users.doc(uid).set({
-        Email: email, Name: username,
-      })
-    })
-    .catch((error) => {
-      const errorMessage = error.message;
-      alert(errorMessage)
-    });
-    setLogedIn(true);
+     if(username.length < 3 || email.length < 3 || password.length < 3){
+       alert('Verifique se todos os campos estão preenchidos ')
+     }
+
+     else if(username.length > 15){
+        alert('Por favor, digite um nome com no máximo 15 caracteres')
+     }
+     else{
+       firebase.auth().createUserWithEmailAndPassword( email, password).then(data => {
+         const uid = data.user?.uid
+         const users = firebase.firestore().collection('users');
+         users.doc(uid).set({
+           Email: email, Name: username,
+         })
+       })
+       .catch((error) => {
+         const errorMessage = error.message;
+         alert(errorMessage)
+       });
+       setLogedIn(true);
+     }
   }
 
   return ( 
