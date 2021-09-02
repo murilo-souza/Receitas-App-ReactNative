@@ -1,14 +1,14 @@
 {
   "expo": {
-    "name": "receitasDeFamilia",
-    "slug": "receitasDeFamilia",
+    "name": "Receitas",
+    "slug": "Receitas",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#2A1B38"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -22,8 +22,9 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
-      }
+        "backgroundColor": "#2A1B38"
+      },
+      "package": "com.murilo_souza234.receitasDeFamilia"
     },
     "web": {
       "favicon": "./assets/favicon.png"

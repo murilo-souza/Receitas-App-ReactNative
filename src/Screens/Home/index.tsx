@@ -61,13 +61,24 @@ export function Home(){
   
   function SignOut(){
     firebase.auth().signOut().then(()=>{
-      alert('Deslogado com sucesso');
       setLogedIn(false)
-      
-    }).catch(function (error){
-      alert('Deslogado com sucesso')
     });
     
+  }
+  
+  function AlertSignOut() {
+    Alert.alert(
+      "Sair",
+      "Tem certeza que deseja deslogar da conta?",
+      [
+        {
+          text: "Continuar",
+          onPress: () => {},
+          style: "cancel"
+        },
+        { text: "Sair", onPress: () => SignOut() }
+      ]
+    );
   }
 
   function GoToCreation(){
@@ -90,7 +101,7 @@ export function Home(){
         <View style={styles.header}>
           <ProfileIcon
             username = {Name}
-            onPress={SignOut}
+            onPress={AlertSignOut}
           />
           <ButtonAdd
             onPress={GoToCreation}

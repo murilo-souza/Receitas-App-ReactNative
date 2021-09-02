@@ -19,12 +19,18 @@ const {Navigator, Screen} = createStackNavigator();
 
 export function AppRoutes(){
   const [logedIn, setLogedIn] = useState(false)
+  useEffect(()=>{
+    firebase.auth().onAuthStateChanged(function(user){
+      if(user){
+        setLogedIn(true)
+      }
+      else if(!user){
+        setLogedIn(false)
+      }
+    })
+  
+  },[])
 
-  firebase.auth().onAuthStateChanged(function(user){
-    if(user){
-      setLogedIn(true)
-    }
-  })
 
   
   return (

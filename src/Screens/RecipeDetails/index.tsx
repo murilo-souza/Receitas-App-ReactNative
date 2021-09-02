@@ -32,11 +32,11 @@ export function RecipeDetails(){
   function AlertDelete(){
     Alert.alert(
       "Deletar receita",
-      "Tem certeza que deseja excluir essa receita",
+      "Tem certeza que deseja excluir essa receita?",
       [
         {
           text: "Manter",
-          onPress: () => console.log("Cancel Pressed"),
+          onPress: () => {},
           style: "cancel"
         },
         { text: "Excluir", onPress: () => DeleteRecipe() }
