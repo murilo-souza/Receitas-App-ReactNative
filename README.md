@@ -7,14 +7,13 @@
 <br>
 <br>
 <h2>Projeto</h2>
-<p>App para anotar receitas de familia que não tem na internet</p>
+<p>Aplicativo para anotar receitas de família que não tem na internet</p>
 
 <h2>Tecnologias</h2>
 <ul>
-  <li><a href='#'>Expo</a></li>
-  <li><a href='#'>FireBase</a></li>
-  <li><a href='#'>TypeScript</a></li>
-  <li><a href='#'>React Native</a></li>
-  <li><a href='#'>React Navigation</a></li>
+  <li><a href='https://docs.expo.dev/index.html'>Expo</a></li>
+  <li><a href='https://firebase.google.com/?hl=pt-br'>FireBase</a></li>
+  <li><a href='https://www.typescriptlang.org'>TypeScript</a></li>
+  <li><a href='https://reactnative.dev'>React Native</a></li>
+  <li><a href='https://reactnavigation.org/docs/getting-started/'>React Navigation</a></li>
 </ul>
-<p>:construction: Em desenvolvimento :construction:</p>
