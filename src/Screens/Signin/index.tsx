@@ -61,7 +61,7 @@ export function Signin(){
             <Image source={ChefeSigin} style={styles.image} resizeMode="stretch"/>
             <TextInput placeholder="Insira seu nome" style={styles.textInput} autoCompleteType={'username'} onChangeText={username => setUsername(username)} value={username}/>
             <TextInput placeholder="Insira seu E-mail" style={styles.textInput} autoCompleteType={'email'} keyboardType={'email-address'} onChangeText={email => setEmail(email)} value={email}/>
-            <TextInput placeholder="Insira sua senha" style={styles.textInput} autoCompleteType={'password'} keyboardType={'visible-password'} onChangeText={password => setPassword(password)} value={password}/>
+            <TextInput placeholder="Insira sua senha" style={styles.textInput} secureTextEntry={true} onChangeText={password => setPassword(password)} value={password}/>
             <Button
               text='Criar conta'
               onPress={SignIn}

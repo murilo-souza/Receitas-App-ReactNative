@@ -64,7 +64,7 @@ export function Login(){
           <View style={styles.container}>
             <Image source={Chefe} style={styles.image} resizeMode="stretch"/>
             <TextInput placeholder= "Insira seu E-mail" style={styles.textInput} onChangeText={email => setEmail(email)} value={email}/>
-            <TextInput placeholder= "Insira sua senha" style={styles.textInput} onChangeText={password => setPassword(password)} value={password}/>
+            <TextInput placeholder= "Insira sua senha" style={styles.textInput} onChangeText={password => setPassword(password)} value={password} secureTextEntry={true}/>
             <Button
               text="Entrar"
               onPress={LogIn}
