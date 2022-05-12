@@ -1,15 +1,15 @@
 
-<h1 align="center">Reaceitas</h1>
+<h1 align="center">Receitas</h1>
 <br>
 <div align="center">
   <img src="https://user-images.githubusercontent.com/53982668/131933874-b2dd2949-e6c2-42fb-bed7-92797aabf031.gif"/>
 </div>
 <br>
 <br>
-<h2>Projeto</h2>
-<p>Aplicativo para anotar receitas de família que não tem na internet</p>
+<h2>Project</h2>
+<p>Aplication to save your own recipes. Created to understand how use firebase with react native and understand how create public and private routes using react navigation </p>
 
-<h2>Tecnologias</h2>
+<h2>Technologies</h2>
 <ul>
   <li><a href='https://docs.expo.dev/index.html'>Expo</a></li>
   <li><a href='https://firebase.google.com/?hl=pt-br'>FireBase</a></li>
@@ -19,4 +19,4 @@
 </ul>
 
 <h2>Layout</h2>
-<p>Para ver o layout com mais detalhe <a href="https://user-images.githubusercontent.com/53982668/131933874-b2dd2949-e6c2-42fb-bed7-92797aabf031.gif">Clique Aqui</a></p>
+<p>To see the layout in more details <a href="https://user-images.githubusercontent.com/53982668/131933874-b2dd2949-e6c2-42fb-bed7-92797aabf031.gif">Click here</a></p>
