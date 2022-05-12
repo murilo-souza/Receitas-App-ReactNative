@@ -7,7 +7,7 @@
 <br>
 <br>
 <h2>Project</h2>
-<p>Aplication to save your own recipes. Created to understand how use firebase with react native and understand how create public and private routes using react navigation </p>
+<p>Application to save your own recipes. Created to understand how use firebase with react native and understand how create public and private routes using react navigation </p>
 
 <h2>Technologies</h2>
 <ul>
