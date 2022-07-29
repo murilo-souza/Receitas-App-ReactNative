@@ -8,6 +8,13 @@
 <br>
 <h2>Project</h2>
 <p>Application to save your own recipes. Created to understand how to use firebase with react native and understand how to create public and private routes using react navigation.</p>
+<h2>Features</h2>
+<ul>
+  <li>SignIn with e-mail and password</li>
+  <li>Create new recipes</li>
+  <li>Edit recipes</li>
+  <li>Save in database</li>
+</ul>
 
 <h2>Technologies</h2>
 <ul>
