@@ -27,4 +27,4 @@
 
 <h2>Layout</h2>
 <p>To see the layout in more details <a href="https://user-images.githubusercontent.com/53982668/131933874-b2dd2949-e6c2-42fb-bed7-92797aabf031.gif">Click here</a></p>
-fixed-term.Murilo.Souza2@bcn.bosch.com
+
