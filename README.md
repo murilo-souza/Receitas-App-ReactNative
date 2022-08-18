@@ -8,13 +8,6 @@
 <br>
 <h2>Project</h2>
 <p>Application to save your own recipes. Created to understand how to use firebase with react native and understand how to create public and private routes using react navigation.</p>
-<h2>Features</h2>
-<ul>
-  <li>SignIn with e-mail and password</li>
-  <li>Create new recipes</li>
-  <li>Edit recipes</li>
-  <li>Save in database</li>
-</ul>
 
 <h2>Stack</h2>
 <ul>
@@ -24,6 +17,16 @@
   <li><a href='https://reactnative.dev'>React Native</a></li>
   <li><a href='https://reactnavigation.org/docs/getting-started/'>React Navigation</a></li>
 </ul>
+
+<h2>Features</h2>
+<ul>
+  <li>SignIn with e-mail and password</li>
+  <li>Create new recipes</li>
+  <li>Edit recipes</li>
+  <li>Save in database</li>
+</ul>
+
+
 
 <h2>Layout</h2>
 <p>To see the layout in more details <a href="https://user-images.githubusercontent.com/53982668/131933874-b2dd2949-e6c2-42fb-bed7-92797aabf031.gif">Click here</a></p>
