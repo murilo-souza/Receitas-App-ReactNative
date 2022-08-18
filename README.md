@@ -16,7 +16,7 @@
   <li>Save in database</li>
 </ul>
 
-<h2>Technologies</h2>
+<h2>Stack</h2>
 <ul>
   <li><a href='https://docs.expo.dev/index.html'>Expo</a></li>
   <li><a href='https://firebase.google.com/?hl=pt-br'>FireBase</a></li>
